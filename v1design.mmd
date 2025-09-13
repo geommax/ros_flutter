@@ -1,0 +1,27 @@
+graph TB
+    MyApp --> RosChannel
+    MyApp --> GlobalState
+    MyApp --> ThemeProvider
+    
+    RosChannel --> OccupancyMap
+    RosChannel --> RobotPose
+    RosChannel --> TF2Dart
+    RosChannel --> LaserScan
+    
+    TF2Dart --> TF
+    TF --> TransformElement
+    TransformElement --> RosTransform
+    RosTransform --> Position
+    RosTransform --> Orientation
+    
+    MapPage --> DisplayMap
+    MapPage --> DisplayRobot
+    MapPage --> DisplayLaser
+    MapPage --> DisplayPath
+    
+    DisplayMap --> OccupancyMap
+    DisplayRobot --> RobotPose
+    
+    GlobalState --> Mode
+    Setting --> JoyStickEvent
+    Setting --> RobotType
